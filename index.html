@@ -24,22 +24,6 @@
 
 <!DOCTYPE html>
 <html lang="ja">
-<head><script src="/public/websocket-interceptor.js" defer></script>
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load' , () => {
-    navigator.serviceWorker.register('./service-worker.js')
-      .then(registration => {
-        console.log('Service Worker registered successfully with scope:', registration.scope);
-      })
-      .catch(error => {
-        console.error('Service Worker registration failed:', error);
-      });
-  });
-} else {
-  console.log('Service workers are not supported in this browser.');
-}
-</script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
