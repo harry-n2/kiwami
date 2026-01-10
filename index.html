@@ -13,12 +13,25 @@
 <script type="module">
   const geminiUrl = window.location.origin + '/api-proxy';
 
-  window.API_KEY = 'UNUSED_PLACEHOLDER_FOR_API_KEY';
-  window.GEMINI_API_KEY = 'UNUSED_PLACEHOLDER_FOR_API_KEY';
+  // Load API key from localStorage if available
+  const storedApiKey = localStorage.getItem('GEMINI_API_KEY');
+  window.API_KEY = storedApiKey || 'UNUSED_PLACEHOLDER_FOR_API_KEY';
+  window.GEMINI_API_KEY = storedApiKey || 'UNUSED_PLACEHOLDER_FOR_API_KEY';
   window.process = window.process || {};
   window.process.env = window.process.env || {};
   window.process.env.API_KEY = window.API_KEY;
   window.process.env.GEMINI_API_KEY = window.GEMINI_API_KEY;
+  
+  // Show API key setup modal if not configured
+  window.addEventListener('DOMContentLoaded', function() {
+    const storedKey = localStorage.getItem('GEMINI_API_KEY');
+    if (!storedKey || storedKey === 'UNUSED_PLACEHOLDER_FOR_API_KEY') {
+      setTimeout(function() {
+        const modal = document.getElementById('api-key-modal');
+        if (modal) modal.style.display = 'flex';
+      }, 1500);
+    }
+  });
 </script>
 
 
@@ -39,6 +52,99 @@
 </head>
 <body class="bg-gray-50 text-gray-900">
     <div id="root"></div>
+
+<!-- API Key Configuration Modal -->
+<div id="api-key-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center; font-family: 'Noto Sans JP', sans-serif;">
+  <div style="background: white; padding: 40px; border-radius: 16px; max-width: 500px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+    <h2 style="margin: 0 0 10px 0; font-size: 24px; color: #333;">🔑 Gemini API キー設定</h2>
+    <p style="margin: 0 0 24px 0; color: #666; font-size: 14px; line-height: 1.6;">
+      AI機能を使用するには、Google Gemini APIキーが必要です。<br>
+      <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color: #4285f4;">こちら</a>からAPIキーを取得してください。
+    </p>
+    <input 
+      type="text" 
+      id="api-key-input" 
+      placeholder="AIzaSy..." 
+      style="width: 100%; padding: 12px 16px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; margin-bottom: 16px; box-sizing: border-box; font-family: 'Courier New', monospace;"
+    />
+    <div style="display: flex; gap: 12px;">
+      <button 
+        onclick="saveApiKey()" 
+        style="flex: 1; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s;"
+        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(102,126,234,0.4)';"
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';"
+      >
+        保存して開始
+      </button>
+      <button 
+        onclick="skipApiKey()" 
+        style="flex: 0.5; padding: 12px; background: #f5f5f5; color: #666; border: none; border-radius: 8px; font-size: 14px; cursor: pointer; transition: all 0.3s;"
+        onmouseover="this.style.background='#e0e0e0';"
+        onmouseout="this.style.background='#f5f5f5';"
+      >
+        スキップ
+      </button>
+    </div>
+    <p style="margin: 16px 0 0 0; font-size: 12px; color: #999; line-height: 1.5;">
+      ※ APIキーはブラウザのローカルストレージに保存されます。外部には送信されません。
+    </p>
+  </div>
+</div>
+
+<script>
+function saveApiKey() {
+  const apiKey = document.getElementById('api-key-input').value.trim();
+  if (!apiKey) {
+    alert('APIキーを入力してください');
+    return;
+  }
+  if (!apiKey.startsWith('AIzaSy')) {
+    if (!confirm('入力されたAPIキーの形式が正しくない可能性があります。このまま保存しますか？')) {
+      return;
+    }
+  }
+  localStorage.setItem('GEMINI_API_KEY', apiKey);
+  window.API_KEY = apiKey;
+  window.GEMINI_API_KEY = apiKey;
+  window.process.env.API_KEY = apiKey;
+  window.process.env.GEMINI_API_KEY = apiKey;
+  document.getElementById('api-key-modal').style.display = 'none';
+  alert('APIキーを保存しました！ページをリロードします。');
+  location.reload();
+}
+
+function skipApiKey() {
+  if (confirm('APIキーなしではAI機能が使用できません。スキップしますか？')) {
+    document.getElementById('api-key-modal').style.display = 'none';
+  }
+}
+
+// Add settings button to page
+window.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+    const settingsBtn = document.createElement('button');
+    settingsBtn.innerHTML = '⚙️';
+    settingsBtn.title = 'API設定';
+    settingsBtn.style.cssText = 'position: fixed; bottom: 20px; right: 20px; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; font-size: 24px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 9999; transition: all 0.3s;';
+    settingsBtn.onmouseover = function() {
+      this.style.transform = 'scale(1.1) rotate(90deg)';
+      this.style.boxShadow = '0 8px 20px rgba(102,126,234,0.4)';
+    };
+    settingsBtn.onmouseout = function() {
+      this.style.transform = 'scale(1) rotate(0deg)';
+      this.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+    };
+    settingsBtn.onclick = function() {
+      const modal = document.getElementById('api-key-modal');
+      const input = document.getElementById('api-key-input');
+      input.value = localStorage.getItem('GEMINI_API_KEY') || '';
+      modal.style.display = 'flex';
+    };
+    document.body.appendChild(settingsBtn);
+  }, 2000);
+});
+</script>
+
 </body>
 </html>
 
