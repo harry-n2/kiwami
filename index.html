@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>極ゼロ1集客ツール - Kiwami Zero-One Marketing</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -18,165 +20,296 @@
 
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #0f172a;
+            /* Dark Navy Background */
             min-height: 100vh;
+            color: #fff;
+            position: relative;
+            overflow-x: hidden;
         }
 
+        /* Ambient background glow - Removed as per new theme */
+
         .container {
-            max-width: 1400px;
+            max-width: 1300px;
             margin: 0 auto;
             padding: 2rem;
         }
 
+        /* --- Header --- */
         .header {
             text-align: center;
             color: white;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
         .header h1 {
             font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 50%, #b45309 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            letter-spacing: 0.05em;
         }
 
+        .header-content {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            color: #e2e8f0;
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            /* Added back for spacing */
+        }
+
+        .header .highlight-box {
+            margin-top: 1.5rem;
+            text-align: left;
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            max-width: 800px;
+            /* Kept original max-width */
+            margin-left: auto;
+            /* Centering */
+            margin-right: auto;
+            /* Centering */
+        }
+
+        .header .highlight-box span {
+            display: block;
+            color: #fbbf24;
+            /* Gold/Yellow */
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .highlight-box span:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- Layout --- */
         .main-content {
             display: grid;
             grid-template-columns: 280px 1fr;
             gap: 2rem;
-            margin-bottom: 2rem;
+            align-items: start;
         }
 
+        /* --- Sidebar Navigation --- */
         .step-navigation {
-            background: rgba(15, 23, 42, 0.95);
+            background: #111827;
+            /* Darker Navy */
+            border: 1px solid #1f2937;
             border-radius: 1.5rem;
             padding: 1.5rem;
-            height: fit-content;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            position: sticky;
+            /* Kept original sticky behavior */
+            top: 2rem;
+            /* Kept original sticky behavior */
         }
 
         .step-navigation h2 {
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            color: #fbbf24;
+            /* Gold/Yellow */
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            text-transform: uppercase;
+            /* Kept original */
+            letter-spacing: 0.05em;
+            /* Kept original */
+            border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+            /* Kept original */
+            padding-bottom: 1rem;
+            /* Kept original */
         }
 
         .step-btn {
             width: 100%;
-            padding: 0.875rem 1rem;
-            margin-bottom: 0.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            color: rgba(255, 255, 255, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            background: transparent;
+            color: #94a3b8;
+            border: none;
             border-radius: 0.75rem;
             font-family: 'Noto Sans JP', sans-serif;
-            font-size: 0.875rem;
-            font-weight: 500;
+            font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: left;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
 
         .step-btn:hover {
-            background: rgba(102, 126, 234, 0.2);
-            border-color: rgba(102, 126, 234, 0.5);
-            color: white;
-            transform: translateX(4px);
+            color: #fbbf24;
+            background: rgba(251, 191, 36, 0.05);
+            padding-left: 1.25rem;
+            /* Kept original hover effect */
         }
 
         .step-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-color: transparent;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            background: rgba(251, 191, 36, 0.1);
+            /* Low opacity gold bg */
+            border: 1px solid #fbbf24;
+            /* Yellow border */
+            color: #fbbf24;
+            box-shadow: 0 0 15px rgba(251, 191, 36, 0.1);
         }
 
         .step-btn i {
-            width: 20px;
+            width: 24px;
             text-align: center;
         }
 
+        /* --- Content Area --- */
         .content-area {
-            background: white;
-            border-radius: 2.5rem;
+            background: #1e293b;
+            border-radius: 2rem;
             padding: 3rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid #334155;
+            position: relative;
+            /* Kept original */
+            overflow: hidden;
+            /* Kept original */
+        }
+
+        .content-area::before {
+            /* Removed the gradient border as it doesn't fit the new theme */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #fbbf24, #d97706, #fbbf24);
         }
 
         .input-section {
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
         .input-section h3 {
-            color: #0f172a;
+            color: white;
             font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+        }
+
+        .input-section h3 i {
+            color: #fbbf24;
         }
 
         .input-area {
-            background: rgb(248, 250, 252);
-            border: 2px solid rgb(226, 232, 240);
-            border-radius: 2.5rem;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
+            background: #0f172a;
+            border: 1px solid #fbbf24;
+            /* Yellow Border as requested */
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
             transition: all 0.3s ease;
         }
 
         .input-area:focus-within {
-            border-color: #667eea;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.2);
+            /* Kept original focus effect, but adjusted color */
+            /* background: rgba(0, 0, 0, 0.5); - Removed as per new theme */
         }
 
         .input-area textarea {
             width: 100%;
-            min-height: 150px;
+            min-height: 200px;
             background: transparent;
             border: none;
             outline: none;
             font-family: 'Noto Sans JP', sans-serif;
             font-size: 1rem;
-            color: #0f172a;
+            color: #94a3b8;
+            /* Placeholder color / Input text color */
             resize: vertical;
+            line-height: 1.7;
         }
 
+        .input-area textarea:focus {
+            color: #f8fafc;
+        }
+
+        /* Styling the placeholder specifically if possible, 
+           but CSS can't easily style value vs placeholder differently broadly without selectors. */
         .input-area textarea::placeholder {
-            color: #94a3b8;
+            color: #64748b;
         }
 
         .generate-btn {
             width: 100%;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            padding: 1.25rem;
+            /* Bright Orange Gradient */
+            background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+            color: #fff;
             border: none;
-            border-radius: 1.5rem;
+            border-radius: 2rem;
+            /* More rounded */
             font-family: 'Noto Sans JP', sans-serif;
-            font-size: 1.125rem;
-            font-weight: 600;
+            font-size: 1.25rem;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            gap: 0.75rem;
+            box-shadow: 0 10px 25px rgba(234, 88, 12, 0.4);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            /* Kept original */
+            position: relative;
+            /* Kept original */
+            overflow: hidden;
+            /* Kept original */
+        }
+
+        .generate-btn::after {
+            /* Kept original hover effect */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .generate-btn:hover::after {
+            opacity: 1;
         }
 
         .generate-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 15px 35px rgba(234, 88, 12, 0.5);
+            /* Slightly lighter */
+            background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);
         }
 
         .generate-btn:active {
@@ -184,203 +317,210 @@
         }
 
         .generate-btn:disabled {
-            opacity: 0.6;
+            background: #475569;
+            box-shadow: none;
             cursor: not-allowed;
             transform: none;
+            /* Kept original */
         }
 
+        /* --- Output Section --- */
         .output-section {
-            margin-top: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
         }
 
         .output-section h3 {
-            color: #0f172a;
+            color: white;
             font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+        }
+
+        .output-section h3 i {
+            color: #fbbf24;
         }
 
         .output-area {
-            background: rgb(15, 23, 42);
-            border-radius: 4.5rem;
-            padding: 3rem;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 1.5rem;
+            padding: 2rem;
             min-height: 300px;
-            color: white;
+            color: #e2e8f0;
             font-size: 1rem;
             line-height: 1.8;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .output-area.empty {
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgba(255, 255, 255, 0.4);
+            color: #64748b;
             font-style: italic;
         }
 
         .output-content {
             white-space: pre-wrap;
             word-wrap: break-word;
-            color: white !important;
+            color: #e2e8f0 !important;
         }
 
         .loading {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            color: rgba(255, 255, 255, 0.7);
+            flex-direction: column;
+            gap: 1rem;
+            color: #fbbf24;
         }
 
         .loading i {
+            font-size: 2rem;
             animation: spin 1s linear infinite;
         }
 
+        .loading span {
+            /* Kept original */
+            font-size: 1rem;
+            color: #94a3b8;
+        }
+
         @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+
+            /* Kept original */
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
         }
 
         .pulse {
+            /* Kept original */
             animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
 
-        /* API Key Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+        /* --- Other Elements --- */
+        .payment-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid #334155;
+        }
+
+        .payment-section h3 {
+            /* Overridden by inline style in HTML, but kept for consistency */
+            color: white !important;
+        }
+
+        .payment-section p {
+            /* Overridden by inline style in HTML, but kept for consistency */
+            color: #94a3b8 !important;
+        }
+
+        .payment-card,
+        .history-item {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            /* Kept original */
+        }
+
+        .payment-card:hover,
+        .history-item:hover {
+            border-color: #fbbf24;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            /* Kept original */
+            background: rgba(30, 41, 59, 0.9);
+            /* Kept original */
+        }
+
+        .payment-card h4,
+        .history-item-title {
+            color: white !important;
+        }
+
+        .payment-card p,
+        .history-item-date,
+        .history-item-content {
+            color: #cbd5e1 !important;
+        }
+
+        .payment-btn {
             width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 10000;
+            padding: 1rem 1.5rem;
+            /* Adjusted padding */
+            border: none;
+            border-radius: 1rem;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Noto Sans JP', sans-serif;
-        }
-
-        .modal.show {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-content h2 {
-            margin: 0 0 10px 0;
-            font-size: 24px;
-            color: #333;
-        }
-
-        .modal-content p {
-            margin: 0 0 24px 0;
-            color: #666;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .modal-content a {
-            color: #4285f4;
-        }
-
-        .modal-input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 14px;
-            margin-bottom: 16px;
-            box-sizing: border-box;
-            font-family: 'Courier New', monospace;
-        }
-
-        .modal-buttons {
-            display: flex;
-            gap: 12px;
-        }
-
-        .modal-btn-primary {
-            flex: 1;
-            padding: 12px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
+            gap: 0.75rem;
+            /* Adjusted gap */
             cursor: pointer;
-            transition: all 0.3s;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            /* Kept original */
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            /* Kept original */
         }
 
-        .modal-btn-primary:hover {
+        .stripe-btn {
+            background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
+            /* Kept original */
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+            /* Kept original */
+        }
+
+        .stripe-btn:hover {
+            /* Kept original */
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
         }
 
-        .modal-btn-secondary {
-            flex: 0.5;
-            padding: 12px;
-            background: #f5f5f5;
-            color: #666;
-            border: none;
-            border-radius: 8px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s;
+        .paypal-btn {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            /* Kept original */
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            /* Kept original */
         }
 
-        .modal-btn-secondary:hover {
-            background: #e0e0e0;
+        .paypal-btn:hover {
+            /* Kept original */
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
         }
 
-        .modal-note {
-            margin: 16px 0 0 0;
-            font-size: 12px;
-            color: #999;
-            line-height: 1.5;
-        }
-
-        .settings-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 9999;
-            transition: all 0.3s;
-        }
-
-        .settings-btn:hover {
-            transform: scale(1.1) rotate(90deg);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .save-btn, .history-btn {
+        /* --- Action Buttons (Save/View History) --- */
+        .save-btn,
+        .history-btn {
             flex: 1;
-            padding: 1rem 1.5rem;
+            padding: 1rem;
             border: none;
             border-radius: 1rem;
             font-family: 'Noto Sans JP', sans-serif;
@@ -395,161 +535,201 @@
         }
 
         .save-btn {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            background: rgba(16, 185, 129, 0.1);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
         }
 
         .save-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+            background: rgba(16, 185, 129, 0.2);
+            color: #6ee7b7;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
         }
 
         .history-btn {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: white;
-            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+            background: rgba(251, 191, 36, 0.1);
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.3);
         }
 
         .history-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+            background: rgba(251, 191, 36, 0.2);
+            color: #fcd34d;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.2);
         }
 
-        .payment-card {
-            background: rgb(248, 250, 252);
-            border: 2px solid #e2e8f0;
-            border-radius: 1rem;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .payment-card:hover {
-            border-color: #667eea;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
-        }
-
-        .payment-btn {
+        /* --- Modal & Settings --- */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 0.875rem 1.5rem;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            /* Kept original */
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #1e293b;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            border: 1px solid #334155;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            /* Kept original */
+            color: white;
+        }
+
+        .modal-content h2 {
+            /* Kept original */
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .modal-content p {
+            /* Kept original */
+            margin: 0 0 1.5rem 0;
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .modal-content a {
+            /* Kept original */
+            color: #fbbf24;
+            text-decoration: underline;
+        }
+
+        .modal-input {
+            width: 100%;
+            padding: 1rem;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 0.75rem;
+            /* Adjusted radius */
+            font-size: 1rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-family: 'Courier New', monospace;
+            /* Kept original */
+        }
+
+        .modal-input:focus {
+            /* Kept original */
+            border-color: #fbbf24;
+            outline: none;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .modal-btn-primary {
+            flex: 1;
+            padding: 1rem;
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            /* Kept original gradient */
+            color: white;
+            /* Changed to white for better contrast */
             border: none;
             border-radius: 0.75rem;
-            font-family: 'Noto Sans JP', sans-serif;
+            /* Adjusted radius */
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
+        }
+
+        .modal-btn-primary:hover {
+            /* Kept original */
+            box-shadow: 0 5px 15px rgba(217, 119, 6, 0.4);
+        }
+
+        .modal-btn-secondary {
+            flex: 0.5;
+            padding: 1rem;
+            background: #334155;
+            color: #cbd5e1;
+            /* Kept original */
+            border: none;
+            border-radius: 0.75rem;
+            /* Adjusted radius */
+            font-size: 0.95rem;
+            /* Kept original */
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal-btn-secondary:hover {
+            /* Kept original */
+            background: #475569;
+            color: white;
+        }
+
+        .settings-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #1e293b;
+            border: 2px solid #fbbf24;
+            color: #fbbf24;
+            font-size: 1.5rem;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            color: white;
+            z-index: 9999;
+            transition: all 0.3s;
+            /* Kept original */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            /* Kept original */
         }
 
-        .stripe-btn {
-            background: linear-gradient(135deg, #635bff 0%, #5145e5 100%);
+        .settings-btn:hover {
+            /* Kept original */
+            transform: rotate(90deg) scale(1.1);
+            border-color: #fbbf24;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
         }
 
-        .stripe-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(99, 91, 255, 0.4);
-        }
+        @media(max-width: 768px) {
+            .header h1 {
+                /* Kept original */
+                font-size: 2rem;
+            }
 
-        .paypal-btn {
-            background: linear-gradient(135deg, #0070ba 0%, #003087 100%);
-        }
+            .header-content {
+                /* Kept original */
+                padding: 1.5rem;
+            }
 
-        .paypal-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 112, 186, 0.4);
-        }
-
-        .history-item {
-            background: rgb(248, 250, 252);
-            border: 2px solid #e2e8f0;
-            border-radius: 1rem;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .history-item:hover {
-            border-color: #667eea;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
-        }
-
-        .history-item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .history-item-title {
-            font-weight: 600;
-            color: #0f172a;
-            font-size: 1.125rem;
-        }
-
-        .history-item-date {
-            color: #64748b;
-            font-size: 0.875rem;
-        }
-
-        .history-item-content {
-            color: #475569;
-            font-size: 0.875rem;
-            line-height: 1.6;
-            max-height: 100px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .history-item-actions {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .history-item-btn {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 0.5rem;
-            font-family: 'Noto Sans JP', sans-serif;
-            font-size: 0.875rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .view-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .view-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-        }
-
-        .delete-btn {
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-            color: white;
-        }
-
-        .delete-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
-        }
-
-        @media (max-width: 768px) {
             .main-content {
                 grid-template-columns: 1fr;
             }
 
             .step-navigation {
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
                 gap: 0.5rem;
+                position: relative;
+                top: 0;
+                z-index: 10;
+                /* Kept original */
             }
 
             .step-navigation h2 {
@@ -557,46 +737,44 @@
             }
 
             .step-btn {
-                font-size: 0.75rem;
-                padding: 0.75rem 0.5rem;
+                /* Kept original */
+                font-size: 0.85rem;
+                padding: 0.75rem;
+                margin-bottom: 0;
             }
 
             .content-area {
+                /* Kept original */
                 padding: 2rem;
-                border-radius: 1.5rem;
-            }
-
-            .input-area {
-                border-radius: 1.5rem;
-                padding: 1.5rem;
-            }
-
-            .output-area {
-                border-radius: 2rem;
-                padding: 2rem;
-            }
-
-            .header h1 {
-                font-size: 1.75rem;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
             <h1>極ゼロ1集客ツール</h1>
-            <p style="color: rgba(255,255,255,0.9); font-size: 1rem; max-width: 900px; margin: 1rem auto; line-height: 1.8;">
-                コストゼロからの講座構築を自動化。<br>
-                集客から成約までを自動化し、究極の集客体験を提供するアプリです。<br>
-                あなたの経歴やスキル、特技、趣味を入力するだけ。AIが最適な講座、販売金額、LP（ランディングページ）を自動で構築します。全機能、無料で提供中。<br>
-                <span style="display: block; margin-top: 0.5rem;">▼ 新規事業のアイデアが思いつかない方に最適</span>
-                <span style="display: block;">▼ 講座を開きたいが、具体的な商材がない悩みを解決</span>
-                <span style="display: block;">▼ 複雑な設定なしで、あなた専用の集客導線が完成</span>
-            </p>
+            <div class="header-content">
+                <p>
+                    <strong>コストゼロからの自動化構築！</strong><br>
+                    集客から成約までを自動化し、究極の集客体験を提供するアプリです。<br>
+                    <br>
+                    あなたの経歴やスキル、特技、趣味を入力してください。<br>
+                    15ステップまで進めるほど情報の精度が高くなります。<br>
+                    <br>
+                    AIが最適な講座、販売金額、そしてLP (ランディングページ)、SNS投稿文、Noteで再販を自動で構築します。
+                </p>
+                <div class="highlight-box">
+                    <span>▼ 新規事業のアイデアが思いつかない方に最適</span>
+                    <span>▼ 講座を開きたいが、 具体的な商材がない悩みを解決</span>
+                    <span>▼ 複雑な設定なしで、 あなた専用の集客導線が完成</span>
+                </div>
+            </div>
         </div>
 
         <div class="main-content">
+
             <div class="step-navigation">
                 <h2><i class="fas fa-list"></i> ステップナビゲーション</h2>
                 <button class="step-btn active" data-step="1">
@@ -682,7 +860,8 @@
                             ここにAIが生成した戦略的ファネルが表示されます...
                         </div>
                     </div>
-                    <div class="output-actions" id="outputActions" style="display: none; margin-top: 1rem; display: flex; gap: 1rem;">
+                    <div class="output-actions" id="outputActions"
+                        style="display: none; margin-top: 1rem; display: flex; gap: 1rem;">
                         <button class="save-btn" id="saveHistoryBtn">
                             <i class="fas fa-save"></i>
                             <span>この内容を保存</span>
@@ -695,26 +874,30 @@
                 </div>
 
                 <!-- Payment Section -->
-                <div class="payment-section" style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
-                    <h3 style="color: #0f172a; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">
+                <div class="payment-section">
+                    <h3 style="color: white; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">
                         <i class="fas fa-credit-card"></i> 決済・支払い設定
                     </h3>
                     <p style="color: #64748b; margin-bottom: 1.5rem;">
                         プレミアムプランにアップグレードして、より高度な機能をご利用いただけます。
                     </p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
                         <div class="payment-card">
                             <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Stripe決済</h4>
                             <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1rem;">クレジットカード・デビットカード対応</p>
-                            <button class="payment-btn stripe-btn" onclick="window.open('https://stripe.com', '_blank')">
+                            <button class="payment-btn stripe-btn"
+                                onclick="window.open('https://stripe.com', '_blank')">
                                 <i class="fab fa-stripe"></i>
                                 Stripeで支払う
                             </button>
                         </div>
                         <div class="payment-card">
                             <h4 style="font-weight: 600; margin-bottom: 0.5rem;">PayPal決済</h4>
-                            <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1rem;">PayPalアカウント・クレジットカード対応</p>
-                            <button class="payment-btn paypal-btn" onclick="window.open('https://www.paypal.com', '_blank')">
+                            <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1rem;">PayPalアカウント・クレジットカード対応
+                            </p>
+                            <button class="payment-btn paypal-btn"
+                                onclick="window.open('https://www.paypal.com', '_blank')">
                                 <i class="fab fa-paypal"></i>
                                 PayPalで支払う
                             </button>
@@ -733,12 +916,7 @@
                 AI機能を使用するには、Google Gemini APIキーが必要です。<br>
                 <a href="https://aistudio.google.com/app/apikey" target="_blank">こちら</a>からAPIキーを取得してください。
             </p>
-            <input
-                type="text"
-                id="apiKeyInput"
-                class="modal-input"
-                placeholder="AIzaSy..."
-            />
+            <input type="text" id="apiKeyInput" class="modal-input" placeholder="AIzaSy..." />
             <div class="modal-buttons">
                 <button class="modal-btn-primary" id="saveApiKeyBtn">
                     保存して開始
@@ -758,7 +936,8 @@
         <div class="modal-content" style="max-width: 800px; max-height: 80vh; overflow-y: auto;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
                 <h2 style="margin: 0;">📚 保存履歴</h2>
-                <button class="close-modal-btn" id="closeHistoryBtn" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #64748b;">
+                <button class="close-modal-btn" id="closeHistoryBtn"
+                    style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #64748b;">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -907,6 +1086,9 @@ Step 14までの全体構造を、PDFやnoteで再販できる形式に整えて
             } else {
                 initializeAI(apiKey);
             }
+
+            // Auto-select Step 1 and show prompt
+            handleStepClick(1);
         }
 
         // Show API Key Modal
@@ -1160,7 +1342,7 @@ ${vision}
             historyModal.classList.remove('show');
         }
 
-        window.viewHistoryItem = function(id) {
+        window.viewHistoryItem = function (id) {
             const history = JSON.parse(localStorage.getItem('KIWAMI_HISTORY') || '[]');
             const item = history.find(h => h.id === id);
 
@@ -1179,7 +1361,7 @@ ${vision}
             }
         };
 
-        window.deleteHistoryItem = function(id) {
+        window.deleteHistoryItem = function (id) {
             if (!confirm('この履歴を削除しますか？')) {
                 return;
             }
@@ -1227,4 +1409,5 @@ ${vision}
         init();
     </script>
 </body>
+
 </html>
