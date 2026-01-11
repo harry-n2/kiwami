@@ -377,6 +377,169 @@
             box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
         }
 
+        .save-btn, .history-btn {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 1rem;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .save-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .history-btn {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+
+        .history-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+        }
+
+        .payment-card {
+            background: rgb(248, 250, 252);
+            border: 2px solid #e2e8f0;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .payment-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+        }
+
+        .payment-btn {
+            width: 100%;
+            padding: 0.875rem 1.5rem;
+            border: none;
+            border-radius: 0.75rem;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: white;
+        }
+
+        .stripe-btn {
+            background: linear-gradient(135deg, #635bff 0%, #5145e5 100%);
+        }
+
+        .stripe-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99, 91, 255, 0.4);
+        }
+
+        .paypal-btn {
+            background: linear-gradient(135deg, #0070ba 0%, #003087 100%);
+        }
+
+        .paypal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 112, 186, 0.4);
+        }
+
+        .history-item {
+            background: rgb(248, 250, 252);
+            border: 2px solid #e2e8f0;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .history-item:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+        }
+
+        .history-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .history-item-title {
+            font-weight: 600;
+            color: #0f172a;
+            font-size: 1.125rem;
+        }
+
+        .history-item-date {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        .history-item-content {
+            color: #475569;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            max-height: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .history-item-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .history-item-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .view-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .view-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .delete-btn {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+        }
+
+        .delete-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+        }
+
         @media (max-width: 768px) {
             .main-content {
                 grid-template-columns: 1fr;
@@ -518,6 +681,44 @@
                             ここにAIが生成した戦略的ファネルが表示されます...
                         </div>
                     </div>
+                    <div class="output-actions" id="outputActions" style="display: none; margin-top: 1rem; display: flex; gap: 1rem;">
+                        <button class="save-btn" id="saveHistoryBtn">
+                            <i class="fas fa-save"></i>
+                            <span>この内容を保存</span>
+                        </button>
+                        <button class="history-btn" id="viewHistoryBtn">
+                            <i class="fas fa-history"></i>
+                            <span>保存履歴を見る</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Payment Section -->
+                <div class="payment-section" style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
+                    <h3 style="color: #0f172a; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">
+                        <i class="fas fa-credit-card"></i> 決済・支払い設定
+                    </h3>
+                    <p style="color: #64748b; margin-bottom: 1.5rem;">
+                        プレミアムプランにアップグレードして、より高度な機能をご利用いただけます。
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                        <div class="payment-card">
+                            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Stripe決済</h4>
+                            <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1rem;">クレジットカード・デビットカード対応</p>
+                            <button class="payment-btn stripe-btn" onclick="window.open('https://buy.stripe.com/test_XXXXXX', '_blank')">
+                                <i class="fab fa-stripe"></i>
+                                Stripeで支払う
+                            </button>
+                        </div>
+                        <div class="payment-card">
+                            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">PayPal決済</h4>
+                            <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1rem;">PayPalアカウント・クレジットカード対応</p>
+                            <button class="payment-btn paypal-btn" onclick="window.open('https://www.paypal.com/paypalme/XXXXXX', '_blank')">
+                                <i class="fab fa-paypal"></i>
+                                PayPalで支払う
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -548,6 +749,21 @@
             <p class="modal-note">
                 ※ APIキーはブラウザのローカルストレージに保存されます。外部には送信されません。
             </p>
+        </div>
+    </div>
+
+    <!-- History Modal -->
+    <div class="modal" id="historyModal">
+        <div class="modal-content" style="max-width: 800px; max-height: 80vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2 style="margin: 0;">📚 保存履歴</h2>
+                <button class="close-modal-btn" id="closeHistoryBtn" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #64748b;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="historyList" style="display: flex; flex-direction: column; gap: 1rem;">
+                <!-- History items will be inserted here -->
+            </div>
         </div>
     </div>
 
@@ -916,6 +1132,12 @@
         const outputArea = document.getElementById('outputArea');
         const outputContent = document.getElementById('outputContent');
         const stepBtns = document.querySelectorAll('.step-btn');
+        const saveHistoryBtn = document.getElementById('saveHistoryBtn');
+        const viewHistoryBtn = document.getElementById('viewHistoryBtn');
+        const historyModal = document.getElementById('historyModal');
+        const closeHistoryBtn = document.getElementById('closeHistoryBtn');
+        const historyList = document.getElementById('historyList');
+        const outputActions = document.getElementById('outputActions');
 
         // Initialize
         function init() {
@@ -1048,6 +1270,9 @@ ${vision}
                 // Display result
                 outputContent.textContent = text;
 
+                // Show save/history buttons
+                outputActions.style.display = 'flex';
+
             } catch (error) {
                 console.error('Generation error:', error);
                 outputContent.innerHTML = `<div style="color: #ff6b6b;">
@@ -1080,11 +1305,148 @@ ${vision}
             }
         }
 
+        // History Management Functions
+        function saveToHistory() {
+            const input = visionInput.value.trim();
+            const output = outputContent.textContent.trim();
+
+            if (!input || !output || output === 'ここにAIが生成した戦略的ファネルが表示されます...') {
+                alert('保存する内容がありません');
+                return;
+            }
+
+            // Get existing history
+            const history = JSON.parse(localStorage.getItem('KIWAMI_HISTORY') || '[]');
+
+            // Create new history item
+            const historyItem = {
+                id: Date.now(),
+                step: currentStep,
+                stepName: getStepName(currentStep),
+                input: input,
+                output: output,
+                date: new Date().toISOString(),
+                dateFormatted: new Date().toLocaleString('ja-JP')
+            };
+
+            // Add to beginning of history
+            history.unshift(historyItem);
+
+            // Keep only last 50 items
+            if (history.length > 50) {
+                history.splice(50);
+            }
+
+            // Save to localStorage
+            localStorage.setItem('KIWAMI_HISTORY', JSON.stringify(history));
+
+            alert('保存しました！');
+        }
+
+        function getStepName(step) {
+            const stepNames = {
+                1: 'ビジョン入力',
+                2: 'ターゲット分析',
+                3: 'ペルソナ設計',
+                4: '課題抽出',
+                5: '価値提案',
+                6: '商品設計',
+                7: 'ファネル構築',
+                8: 'リード獲得',
+                9: '育成戦略',
+                10: 'セールス最適化',
+                11: 'リテンション',
+                12: 'スケール戦略',
+                13: 'KPI設定',
+                14: '自動化',
+                15: '完成・実行'
+            };
+            return stepNames[step] || `Step ${step}`;
+        }
+
+        function showHistory() {
+            const history = JSON.parse(localStorage.getItem('KIWAMI_HISTORY') || '[]');
+
+            if (history.length === 0) {
+                historyList.innerHTML = '<p style="text-align: center; color: #64748b; padding: 2rem;">保存された履歴がありません</p>';
+            } else {
+                historyList.innerHTML = history.map(item => `
+                    <div class="history-item" data-id="${item.id}">
+                        <div class="history-item-header">
+                            <div>
+                                <div class="history-item-title">Step ${item.step}: ${item.stepName}</div>
+                                <div class="history-item-date">${item.dateFormatted}</div>
+                            </div>
+                        </div>
+                        <div class="history-item-content">
+                            ${item.output.substring(0, 200)}${item.output.length > 200 ? '...' : ''}
+                        </div>
+                        <div class="history-item-actions">
+                            <button class="history-item-btn view-btn" onclick="viewHistoryItem(${item.id})">
+                                <i class="fas fa-eye"></i> 表示
+                            </button>
+                            <button class="history-item-btn delete-btn" onclick="deleteHistoryItem(${item.id})">
+                                <i class="fas fa-trash"></i> 削除
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            historyModal.classList.add('show');
+        }
+
+        function hideHistory() {
+            historyModal.classList.remove('show');
+        }
+
+        window.viewHistoryItem = function(id) {
+            const history = JSON.parse(localStorage.getItem('KIWAMI_HISTORY') || '[]');
+            const item = history.find(h => h.id === id);
+
+            if (item) {
+                visionInput.value = item.input;
+                outputContent.textContent = item.output;
+                outputArea.classList.remove('empty');
+                outputActions.style.display = 'flex';
+                hideHistory();
+
+                // Switch to the correct step
+                handleStepClick(item.step);
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        };
+
+        window.deleteHistoryItem = function(id) {
+            if (!confirm('この履歴を削除しますか？')) {
+                return;
+            }
+
+            let history = JSON.parse(localStorage.getItem('KIWAMI_HISTORY') || '[]');
+            history = history.filter(h => h.id !== id);
+            localStorage.setItem('KIWAMI_HISTORY', JSON.stringify(history));
+
+            // Refresh history display
+            showHistory();
+        };
+
         // Event Listeners
         saveApiKeyBtn.addEventListener('click', saveApiKey);
         skipApiKeyBtn.addEventListener('click', skipApiKey);
         settingsBtn.addEventListener('click', showApiKeyModal);
         generateBtn.addEventListener('click', generateStrategy);
+        saveHistoryBtn.addEventListener('click', saveToHistory);
+        viewHistoryBtn.addEventListener('click', showHistory);
+        closeHistoryBtn.addEventListener('click', hideHistory);
+
+        // Close history modal when clicking outside
+        historyModal.addEventListener('click', (e) => {
+            if (e.target === historyModal) {
+                hideHistory();
+            }
+        });
 
         stepBtns.forEach(btn => {
             btn.addEventListener('click', () => {
