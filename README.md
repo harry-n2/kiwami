@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kiwami Zero-One Marketing Platform
 
-## Getting Started
+AI搭載マーケティング自動化プラットフォーム - セールスファネル戦略とコンテンツ生成を支援
 
-First, run the development server:
+## 概要
+
+Kiwami Zero-One Marketing Platformは、企業がセールスファネル戦略全体を合理化し、コンテンツ生成を自動化するためのAI搭載プラットフォームです。
+
+## 主な機能
+
+### ファネル構築・戦略
+- 15ステップのファネルビルダー（各段階でAIガイダンス付き）
+- セールスシーケンスのための戦略的ブループリント生成
+- 複数の同時進行ファネルのプロジェクト管理
+
+### コンテンツ生成ツール
+- 複数のデザインテーマ対応ランディングページビルダー
+  - Gorgeous（豪華）、Modern（モダン）、Minimal（ミニマル）、Professional（プロフェッショナル）
+- 5～10日間のドリップキャンペーンによるメールシーケンス自動化
+- SNS（ソーシャルメディア）投稿生成 - 複数プラットフォーム対応10日間キャンペーン
+- 再利用可能なアセットのための商品テンプレートライブラリ
+
+### 管理機能
+- 支払いプラン管理（Free、Starter、Businessティア）
+- リード追跡・管理システム
+- ファネル進捗とアセット作成の分析ダッシュボード
+- 決済ゲートウェイ統合サポート（Stripe、PayPal）
+
+## ターゲットユーザー
+
+- マーケティングプロフェッショナル
+- 起業家
+- AIアシスタンスを通じてセールスファネル戦略を自動化・最適化したい代理店
+
+## 技術スタック
+
+- React
+- Google Gemini AI統合
+- Local Storage（プロジェクト永続化）
+- ESMモジュール
+- レスポンシブデザイン
+
+## ローカル開発
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# 任意のHTTPサーバーで実行
+python -m http.server 8000
+# または
+npx serve
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで http://localhost:8000 を開いてください。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## デプロイ
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+このサイトはGitHub Pagesで公開されています。
 
-## Learn More
+## ライセンス
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© 2025 Kiwami Zero-One Marketing. All rights reserved.
